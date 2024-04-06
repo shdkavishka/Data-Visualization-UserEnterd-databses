@@ -1,0 +1,32 @@
+<div>
+    <canvas id="myChart"></canvas>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  
+  <script>
+    const config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data: {{data|safe}},
+          backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+          ],
+          label: 'My First Dataset'
+        }],
+        labels: {{labels|safe}}
+      },
+      options: {
+        responsive: true
+      }
+    };
+  
+    window.onload = function() {
+      var ctx = document.getElementById('myChart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+  </script>
+  
